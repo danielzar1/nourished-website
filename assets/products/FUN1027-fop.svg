@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#f4b0bd"/><stop offset="1" stop-color="#E8506E"/></linearGradient>
+<linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#ffffff" stop-opacity="0.45"/><stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+</defs>
+<rect width="600" height="600" fill="#FFF8EE"/>
+<!-- pouch -->
+<rect x="150" y="70" width="300" height="40" rx="10" fill="#E8506E" opacity="0.85"/>
+<path d="M140 110 Q140 95 158 95 H442 Q460 95 460 110 V520 Q460 540 440 540 H160 Q140 540 140 520 Z" fill="url(#bg)"/>
+<path d="M140 110 Q140 95 158 95 H300 V540 H160 Q140 540 140 520 Z" fill="url(#sheen)"/>
+<circle cx="300" cy="170" r="46" fill="#ffffff" opacity="0.9"/>
+<text x="300" y="184" font-family="Verdana,sans-serif" font-size="34" font-weight="900" text-anchor="middle" fill="#E8506E">N</text>
+<text x="300" y="250" font-family="Verdana,sans-serif" font-size="36" font-weight="800" fill="#ffffff" text-anchor="middle"><tspan x="300" dy="0">Fruity Chews</tspan></text>
+<text x="300" y="430" font-family="Verdana,sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle" opacity="0.95">NOURISHED</text>
+<text x="300" y="462" font-family="Verdana,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.85">Natural &amp; Fun Snacks</text>
+<text x="300" y="585" font-family="Verdana,sans-serif" font-size="15" fill="#8a8079" text-anchor="middle">placeholder · front of pack</text>
+</svg>

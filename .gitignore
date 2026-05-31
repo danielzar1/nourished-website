@@ -1,0 +1,21 @@
+# --- Internal planning docs (contain client email, pricing & strategy) ---
+CLAUDE.md
+MEMORY.md
+DESIGN.md
+CHANGELOG.md
+*.plan.md
+
+# --- Source materials: not needed for the live site (large / sensitive) ---
+FUNDAY Retail Pricing - Website.xlsx
+*.xlsx
+wetransfer_*.zip
+*.zip
+Pictures/
+
+# --- Local tooling & OS cruft ---
+.claude/
+.vscode/
+.DS_Store
+Thumbs.db
+*.tmp
+*.log

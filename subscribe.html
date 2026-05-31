@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-year="2026">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscribe & Save 5% — Nourished</title>
+  <meta name="description" content="Subscribe to a monthly delivery of your favourite Nourished sweets and save 5% on every order. Skip, pause or cancel anytime.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="header-slot"></div>
+  <main id="main">
+    <section class="section">
+      <div class="container split">
+        <div class="stack">
+          <span class="eyebrow">↻ Subscribe &amp; Save</span>
+          <h1 style="font-size:clamp(2.2rem,6vw,3.4rem)">Never run out. <span style="color:var(--berry)">Save 5%.</span></h1>
+          <p class="lead">Set up a monthly delivery of your favourite sweets — or a custom box — and we'll take 5% off every single order. You're always in control: skip a month, pause, or cancel whenever you like.</p>
+          <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:.5rem">
+            <a class="btn btn--lg" href="shop.html">Choose your sweets</a>
+            <a class="btn btn--lg btn--ghost" href="build-a-box.html">Subscribe to a box</a>
+          </div>
+        </div>
+        <div class="split__media panel center" style="background:linear-gradient(135deg,#D7EFF4,var(--cream-deep))" aria-hidden="true">
+          <svg class="hero-illo" viewBox="0 0 240 240" role="img" aria-label="A delivery box on a monthly repeat cycle">
+            <defs>
+              <marker id="sub-ah" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="6" refY="13" orient="auto">
+                <path d="M0 2 L20 13 L0 24 L7 13 Z" fill="#1E9DB2"/>
+              </marker>
+            </defs>
+            <!-- recurring arrows -->
+            <path d="M62 107 A62 62 0 0 1 178 107" fill="none" stroke="#1E9DB2" stroke-width="11" stroke-linecap="round" marker-end="url(#sub-ah)"/>
+            <path d="M178 149 A62 62 0 0 1 62 149" fill="none" stroke="#1E9DB2" stroke-width="11" stroke-linecap="round" marker-end="url(#sub-ah)"/>
+            <!-- delivery box -->
+            <rect x="84" y="98" width="72" height="62" rx="10" fill="#FFB23E"/>
+            <rect x="84" y="98" width="72" height="16" rx="8" fill="#FFC766"/>
+            <rect x="146" y="114" width="10" height="46" fill="#E89A2E" opacity=".5"/>
+            <rect x="114" y="98" width="12" height="62" fill="#fff" opacity=".45"/>
+            <path d="M120 150 C113 144 106 140 106 134.5 C106 131.2 108.6 129 111.5 129 C114.5 129 117.5 131 120 134.5 C122.5 131 125.5 129 128.5 129 C131.4 129 134 131.2 134 134.5 C134 140 127 144 120 150 Z" fill="#fff" opacity=".9"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section--tight">
+      <div class="container">
+        <h2 class="section-title center" style="margin-bottom:2.5rem">How it works</h2>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+          <div class="pillar reveal"><div class="stat">1</div><h3>Pick your treats</h3><p>Choose any product or build your own box, then select "Subscribe &amp; Save".</p></div>
+          <div class="pillar reveal" data-delay="100"><div class="stat">2</div><h3>We deliver monthly</h3><p>Your sweets arrive at your door every month, automatically — 5% off, every time.</p></div>
+          <div class="pillar reveal" data-delay="200"><div class="stat">3</div><h3>You stay in charge</h3><p>Skip, pause, swap flavours or cancel anytime from your account. No fuss.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section--tight">
+      <div class="container panel reveal" style="max-width:760px;margin-inline:auto">
+        <h2 class="section-title center" style="margin-bottom:1.5rem">Good to know</h2>
+        <div class="stack">
+          <div><h3 style="font-size:1.1rem">Is there a minimum commitment?</h3><p class="muted">Nope. Subscribe for as long as it suits you and cancel whenever you like.</p></div>
+          <div><h3 style="font-size:1.1rem">Do I still get free delivery?</h3><p class="muted">Yes — the same rules apply. Orders of R1000 or more ship free; otherwise delivery is a flat R80.</p></div>
+          <div><h3 style="font-size:1.1rem">Can I change my flavours?</h3><p class="muted">Absolutely. Swap the contents of your subscription before each monthly order.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="footer-slot"></div>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/confetti.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/fx.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/components.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" data-year="2026">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where to Buy — Nourished Stockists</title>
+  <meta name="description" content="Find Nourished sweets in store across South Africa, or become a stockist and bring better-for-you confectionery to your shelves.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="header-slot"></div>
+  <main id="main">
+    <section class="section--tight">
+      <div class="container center stack">
+        <span class="eyebrow">📍 Where to buy</span>
+        <h1 class="section-title">Find Nourished near you</h1>
+        <p class="lead" style="margin-inline:auto">Prefer to grab your sweets in person? Look for Nourished at these retailers across South Africa.</p>
+      </div>
+    </section>
+
+    <section style="padding-bottom:clamp(40px,6vw,72px)">
+      <div class="container">
+        <div class="grid" id="stockist-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))"></div>
+        <p class="center muted" style="margin-top:1.5rem;font-size:.85rem">Stockist list is illustrative for now — the live list will be confirmed at launch.</p>
+      </div>
+    </section>
+
+    <section class="section--tight">
+      <div class="container panel split ribbon" style="color:#fff">
+        <div class="split__media center" aria-hidden="true">
+          <svg class="hero-illo" viewBox="0 0 240 240" role="img" aria-label="A friendly candy shop storefront">
+            <!-- building -->
+            <rect x="46" y="104" width="148" height="96" rx="10" fill="#fff"/>
+            <!-- windows -->
+            <rect x="58" y="150" width="34" height="32" rx="5" fill="#BFEAF1"/>
+            <rect x="148" y="150" width="34" height="32" rx="5" fill="#BFEAF1"/>
+            <path d="M75 150 V182 M58 166 H92 M165 150 V182 M148 166 H182" stroke="#fff" stroke-width="4"/>
+            <!-- door -->
+            <rect x="104" y="150" width="32" height="50" rx="6" fill="#1E9DB2"/>
+            <circle cx="129" cy="176" r="2.6" fill="#fff"/>
+            <!-- hanging round sign with brand heart -->
+            <circle cx="120" cy="130" r="13" fill="#8A6FD1"/>
+            <path d="M120 137 C115 133 111 130.5 111 127 C111 125 112.7 123.6 114.6 123.6 C116.5 123.6 118.5 125 120 127 C121.5 125 123.5 123.6 125.4 123.6 C127.3 123.6 129 125 129 127 C129 130.5 125 133 120 137 Z" fill="#fff"/>
+            <!-- striped scalloped awning -->
+            <rect x="38" y="82" width="164" height="9" rx="4" fill="#FFB23E"/>
+            <path d="M40 88 H60 V112 A10 10 0 0 1 40 112 Z" fill="#FFB23E"/>
+            <path d="M60 88 H80 V112 A10 10 0 0 1 60 112 Z" fill="#fff"/>
+            <path d="M80 88 H100 V112 A10 10 0 0 1 80 112 Z" fill="#FFB23E"/>
+            <path d="M100 88 H120 V112 A10 10 0 0 1 100 112 Z" fill="#fff"/>
+            <path d="M120 88 H140 V112 A10 10 0 0 1 120 112 Z" fill="#FFB23E"/>
+            <path d="M140 88 H160 V112 A10 10 0 0 1 140 112 Z" fill="#fff"/>
+            <path d="M160 88 H180 V112 A10 10 0 0 1 160 112 Z" fill="#FFB23E"/>
+            <path d="M180 88 H200 V112 A10 10 0 0 1 180 112 Z" fill="#fff"/>
+          </svg>
+        </div>
+        <div class="stack">
+          <h2 class="section-title" style="color:#fff">Stock Nourished in your store</h2>
+          <p style="opacity:.95">Run a shop, pharmacy, deli or wellness store? Join the growing list of retailers bringing better-for-you sweets to their customers. We'd love to hear from you.</p>
+          <a class="btn btn--lg btn--ink" href="contact.html?subject=wholesale" style="align-self:flex-start;margin-top:.5rem">Become a stockist</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="footer-slot"></div>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/confetti.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/fx.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const stores = [
+        { n: 'Wellness Co.', c: 'Nationwide · health stores' },
+        { n: 'Pharma Plus', c: 'Selected pharmacies' },
+        { n: 'Natural Foods Market', c: 'Cape Town · Gauteng' },
+        { n: 'GreenGrocer', c: 'Organic grocers' },
+        { n: 'FuelUp Stores', c: 'Convenience & forecourt' },
+        { n: 'The Deli Room', c: 'Delis & cafés' },
+        { n: 'Kids Emporium', c: 'Toy & lifestyle stores' },
+        { n: 'Online Marketplace', c: 'Ships countrywide' }
+      ];
+      document.getElementById('stockist-grid').innerHTML = stores.map((s, i) => `
+        <div class="panel reveal" data-delay="${i*60}" style="text-align:center">
+          <div style="height:56px;display:grid;place-items:center;font-family:var(--font-display);font-weight:700;font-size:1.15rem;color:var(--accent)">${s.n}</div>
+          <p class="muted" style="font-size:.82rem">${s.c}</p>
+        </div>`).join('');
+      FX.initReveals(document.getElementById('stockist-grid'));
+    });
+  </script>
+</body>
+</html>
