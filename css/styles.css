@@ -156,7 +156,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   display: flex; flex-direction: column; padding: var(--gutter);
 }
 .mobile-nav.is-open { transform: translateX(0); }
-.mobile-nav a { font-family: var(--font-display); font-size: 1.5rem; padding: .6rem 0; border-bottom: 1px solid var(--line); }
+.mobile-nav nav { display: flex; flex-direction: column; }
+.mobile-nav a { display: block; font-family: var(--font-display); font-size: 1.5rem; padding: .75rem 0; border-bottom: 1px solid var(--line); transition: color var(--t-fast); }
+.mobile-nav a:hover, .mobile-nav a[aria-current="page"] { color: var(--accent); }
 .mobile-nav__head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
 
 /* announcement bar */
@@ -290,6 +292,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 .field { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1.1rem; }
 .field label { font-family: var(--font-display); font-weight: 500; font-size: .92rem; }
 .field input, .field textarea, .field select {
+  width: 100%; min-width: 0; max-width: 100%;
   padding: .85em 1em; border-radius: var(--r-md); border: 2px solid var(--line);
   background: var(--white); transition: border-color var(--t-fast);
 }

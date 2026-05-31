@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="split__media">
         <div class="panel" style="padding:1rem">
           <img id="pdp-main" src="${productImg(p,'front')}" alt="${p.name}" data-tilt
-               style="width:100%;border-radius:var(--r-md)" width="600" height="600">
+               style="width:100%;height:auto;display:block;border-radius:var(--r-md)">
           <div style="display:flex;gap:.6rem;margin-top:.8rem">
             <button class="pdp-thumb" data-img="${productImg(p,'front')}" aria-label="Front of pack"
               style="flex:1;border-radius:var(--r-sm);overflow:hidden;outline:2px solid var(--accent)">

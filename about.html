@@ -97,7 +97,7 @@
         <div class="grid pillars" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
           <div class="pillar reveal"><div class="stat">0g</div><p style="font-weight:700">added sugar</p></div>
           <div class="pillar reveal" data-delay="100"><div class="stat">100%</div><p style="font-weight:700">natural colours &amp; flavours</p></div>
-          <div class="pillar reveal" data-delay="200"><div class="stat">12</div><p style="font-weight:700">flavours to love</p></div>
+          <div class="pillar reveal" data-delay="200"><div class="stat" id="stat-flavours">8</div><p style="font-weight:700">flavours to love</p></div>
           <div class="pillar reveal" data-delay="300"><div class="stat"><svg viewBox="0 0 48 48" style="height:.9em;width:auto;display:inline-block;vertical-align:-.06em" role="img" aria-label="plant-based"><path d="M24 5 C41 13 43 37 24 44 C5 37 7 13 24 5 Z" fill="#3FA66A"/><path d="M24 5 C41 13 43 37 24 44 C24 30 24 16 24 5 Z" fill="#2E7E4F" opacity=".45"/><path d="M24 10 L24 40 M24 20 L33 15 M24 20 L15 15 M24 30 L33 26 M24 30 L15 26" stroke="#2E7E4F" stroke-width="2.2" stroke-linecap="round" fill="none" opacity=".55"/></svg></div><p style="font-weight:700">vegan options</p></div>
         </div>
       </div>
@@ -133,5 +133,12 @@
   <script src="js/fx.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/components.js"></script>
+  <script>
+    /* Keep the "flavours to love" stat in sync with the live (visible) catalogue. */
+    document.addEventListener('DOMContentLoaded', () => {
+      const el = document.getElementById('stat-flavours');
+      if (el && window.PRODUCTS) el.textContent = PRODUCTS.length;
+    });
+  </script>
 </body>
 </html>

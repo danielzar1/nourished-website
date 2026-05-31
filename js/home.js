@@ -37,9 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="panel" style="padding:1rem;text-align:center;font-family:var(--font-display);font-weight:600;color:var(--ink-soft)">${s}</div>`).join('');
   }
 
-  // Hero: float candy + gentle bob + cycle product image
-  const art = document.getElementById('hero-art');
-  if (art) FX.floatBits(art, ['🍓','🍬','🐻','🍭','🍑','🐸','🌱']);
+  // Hero: gentle bob + cycle product image
   const hp = document.getElementById('hero-product');
   if (hp) hp.src = productImg('FUN1001', 'front'); // embedded data URI (file:// safe)
   if (hp && FX.motion && typeof gsap !== 'undefined') {

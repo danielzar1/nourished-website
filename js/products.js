@@ -29,7 +29,7 @@ const PILLARS = [
    type:   'gummy' | 'chew' | 'lollipop'
    mixable: true  => selectable inside Build-a-Box (sold loose as 50g/45g bags)
    accent:  per-product candy colour that themes the UI                       */
-const PRODUCTS = [
+const ALL_PRODUCTS = [
   {
     sku: 'FUN1001', name: 'Raspberry Gummy Frogs', type: 'gummy',
     packDesc: '12 × 50g bags', bagWeight: '50g', price: 899, mixable: true,
@@ -39,7 +39,7 @@ const PRODUCTS = [
     description: 'Our raspberry frogs are soft, springy and bursting with juicy berry flavour in every leap. Made with real-food ingredients and a generous dose of gut-loving prebiotic fibre — so this little treat loves you back. No added sugar, no nasties, just proper fun. Box of 12 × 50g bags, perfect for sharing (or not).'
   },
   {
-    sku: 'FUN1002', name: 'Sour Peach Gummy Hearts', type: 'gummy',
+    sku: 'FUN1002', name: 'Sour Peach Gummy Hearts', type: 'gummy', hidden: true, // no real photo yet — hidden from listings
     packDesc: '12 × 50g bags', bagWeight: '50g', price: 899, mixable: true,
     vegan: false, tags: ['sour', 'fruity'], flavourProfile: ['sour', 'fruity'],
     accent: '#FF8A3D',
@@ -55,7 +55,7 @@ const PRODUCTS = [
     description: 'A tangle of tangy bears in raspberry, apple and lemon — fully plant-based and vegan-certified, with a healthy punch of prebiotic fibre. No sugar added, no sugar alcohols, no gelatine. Just a sour adventure the whole crew can enjoy. Box of 12 × 50g bags.'
   },
   {
-    sku: 'FUN1005', name: 'Fruity Gummy Snakes', type: 'gummy',
+    sku: 'FUN1005', name: 'Fruity Gummy Snakes', type: 'gummy', hidden: true, // no real photo yet — hidden from listings
     packDesc: '12 × 50g bags', bagWeight: '50g', price: 899, mixable: true,
     vegan: false, tags: ['fruity'], flavourProfile: ['fruity', 'adventurous'],
     accent: '#34BBD0',
@@ -63,7 +63,7 @@ const PRODUCTS = [
     description: 'Stretchy, wiggly and seriously moreish — our fruity snakes slither through a rainbow of real-fruit flavours. Soft-set, gut-friendly and made without added sugar. The kind of snack that disappears before you can say "ssssss". Box of 12 × 50g bags.'
   },
   {
-    sku: 'FUN1006', name: 'Sour Cola Gummy Bottles', type: 'gummy',
+    sku: 'FUN1006', name: 'Sour Cola Gummy Bottles', type: 'gummy', hidden: true, // no real photo yet — hidden from listings
     packDesc: '12 × 50g bags', bagWeight: '50g', price: 899, mixable: true,
     vegan: false, tags: ['sour'], flavourProfile: ['sour', 'classic'],
     accent: '#A9683B',
@@ -79,7 +79,7 @@ const PRODUCTS = [
     description: 'Two flavours, one perfect match — ripe summer strawberries layered with smooth, dreamy cream. Soft, pillowy and impossibly comforting, made with no added sugar and real-food ingredients. A little moment of joy in every bite. Box of 12 × 50g bags.'
   },
   {
-    sku: 'FUN1008', name: 'Party Mix Gummies', type: 'gummy',
+    sku: 'FUN1008', name: 'Party Mix Gummies', type: 'gummy', hidden: true, // no real photo yet — hidden from listings
     packDesc: '12 × 50g bags', bagWeight: '50g', price: 899, mixable: true,
     vegan: false, tags: ['fruity'], flavourProfile: ['fruity', 'adventurous'],
     accent: '#8A6FD1',
@@ -127,6 +127,11 @@ const PRODUCTS = [
     description: 'A share bag of eight assorted lollipops in a swirl of sweet and sour fruity flavours — the perfect long-lasting treat for little hands and big kids alike. No added sugar, all the fun. One bag of 8 × 11g lollipops.'
   }
 ];
+
+/* Visible catalogue. Products flagged `hidden` (no real photo yet) are kept in the data
+   but filtered out of EVERYTHING that renders from PRODUCTS — shop, home, build-a-box,
+   quiz and product pages. To re-enable one, just drop its `hidden` flag once a photo lands. */
+const PRODUCTS = ALL_PRODUCTS.filter(p => !p.hidden);
 
 /* Image resolver — change EXT to 'png'/'jpg' (or per-SKU map) when real photos land.
    Files live in assets/products/<SKU>-fop.<ext> (front of pack) and -pack.<ext> (multipack). */
