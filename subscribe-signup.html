@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" data-year="2026">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start Your Subscription — Nourished</title>
+  <meta name="description" content="Set up your monthly Nourished sweets subscription. Choose your plan, enter your details, and save 5% on every delivery. Skip, pause or cancel anytime.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="header-slot"></div>
+  <main id="main">
+    <section class="section--tight">
+      <div class="container center stack" style="max-width:760px;margin-inline:auto">
+        <span class="eyebrow">↻ Start your subscription</span>
+        <h1 class="section-title">Set up your monthly treats</h1>
+        <p class="lead" style="margin-inline:auto">Build your plan, pop in your details, and you're done. We'll take <strong>5% off every delivery</strong> — and you can skip, pause or cancel anytime. <a href="subscribe.html" style="color:var(--accent);font-weight:700">How it works →</a></p>
+      </div>
+    </section>
+
+    <section style="padding-bottom:clamp(48px,8vw,96px)">
+      <div class="container split" style="align-items:start;gap:2rem">
+        <!-- FORM -->
+        <div class="panel">
+          <div class="form-success" id="sub-success" role="status" aria-live="polite"></div>
+          <form id="sub-form" novalidate>
+
+            <!-- 1. Plan -->
+            <h2 style="font-size:1.25rem;margin-bottom:.2rem">1. Choose your plan</h2>
+            <p class="muted" style="font-size:.88rem;margin-bottom:1rem">You can change any of this before every delivery.</p>
+
+            <p style="font-family:var(--font-display);font-weight:500;font-size:.92rem;margin-bottom:.5rem">What should we send?</p>
+            <div class="stack" style="gap:.7rem;margin-bottom:1.3rem">
+              <label class="toggle-card" data-active="true">
+                <input type="radio" name="plan" value="surprise" checked>
+                <span><span class="toggle-card__title">Surprise me 🎁</span><br><span class="muted" style="font-size:.86rem">We'll send a fun, varied mix of our best-loved sweets each time.</span></span>
+              </label>
+              <label class="toggle-card" data-active="false">
+                <input type="radio" name="plan" value="pick">
+                <span><span class="toggle-card__title">Let me choose my flavours 🍬</span><br><span class="muted" style="font-size:.86rem">Hand-pick exactly which sweets go in every box. We'll help you set it after sign-up.</span></span>
+              </label>
+            </div>
+
+            <p style="font-family:var(--font-display);font-weight:500;font-size:.92rem;margin-bottom:.5rem">How many bags per delivery?</p>
+            <div class="size-pills" id="size-pills" role="group" aria-label="Bags per delivery" style="margin-bottom:1.3rem">
+              <button type="button" class="size-pill" data-size="3">3 bags<small></small></button>
+              <button type="button" class="size-pill" data-size="6" aria-pressed="true">6 bags<small></small></button>
+              <button type="button" class="size-pill" data-size="12">12 bags<small></small></button>
+            </div>
+
+            <p style="font-family:var(--font-display);font-weight:500;font-size:.92rem;margin-bottom:.5rem">How often?</p>
+            <div class="size-pills" id="freq-pills" role="group" aria-label="Delivery frequency" style="margin-bottom:1.6rem">
+              <button type="button" class="size-pill" data-freq="Every 2 weeks">Every 2 weeks<small>fortnightly</small></button>
+              <button type="button" class="size-pill" data-freq="Monthly" aria-pressed="true">Monthly<small>most popular</small></button>
+              <button type="button" class="size-pill" data-freq="Every 2 months">Every 2 months<small>occasional</small></button>
+            </div>
+
+            <!-- 2. Your details -->
+            <h2 style="font-size:1.25rem;margin:1.6rem 0 1rem">2. Your details</h2>
+            <div class="field">
+              <label for="s-name">Full name</label>
+              <input id="s-name" name="name" type="text" autocomplete="name" required>
+              <span class="err">Please tell us your name.</span>
+            </div>
+            <div class="field">
+              <label for="s-email">Email address</label>
+              <input id="s-email" name="email" type="email" autocomplete="email" required>
+              <span class="err">Please enter a valid email.</span>
+            </div>
+            <div class="field">
+              <label for="s-phone">Mobile number</label>
+              <input id="s-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+              <span class="err">We need a number for delivery updates.</span>
+            </div>
+
+            <!-- 3. Delivery address -->
+            <h2 style="font-size:1.25rem;margin:1.6rem 0 1rem">3. Delivery address</h2>
+            <div class="field">
+              <label for="s-street">Street address</label>
+              <input id="s-street" name="street" type="text" autocomplete="address-line1" required>
+              <span class="err">Please add your street address.</span>
+            </div>
+            <div class="field">
+              <label for="s-suburb">Suburb</label>
+              <input id="s-suburb" name="suburb" type="text" autocomplete="address-line2" required>
+              <span class="err">Please add your suburb.</span>
+            </div>
+            <div class="grid" style="grid-template-columns:1fr 1fr;gap:0 1rem">
+              <div class="field">
+                <label for="s-city">City / Town</label>
+                <input id="s-city" name="city" type="text" autocomplete="address-level2" required>
+                <span class="err">Please add your city or town.</span>
+              </div>
+              <div class="field">
+                <label for="s-postal">Postal code</label>
+                <input id="s-postal" name="postal" type="text" inputmode="numeric" autocomplete="postal-code" required>
+                <span class="err">Please add a postal code.</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="s-province">Province</label>
+              <select id="s-province" name="province" required>
+                <option value="">Choose a province…</option>
+                <option>Eastern Cape</option>
+                <option>Free State</option>
+                <option>Gauteng</option>
+                <option>KwaZulu-Natal</option>
+                <option>Limpopo</option>
+                <option>Mpumalanga</option>
+                <option>Northern Cape</option>
+                <option>North West</option>
+                <option>Western Cape</option>
+              </select>
+              <span class="err">Please choose your province.</span>
+            </div>
+            <div class="field">
+              <label for="s-notes">Anything we should know? <span class="muted" style="font-weight:400">(optional)</span></label>
+              <textarea id="s-notes" name="notes" style="min-height:90px" placeholder="Flavours to include or avoid, allergies, a gift note…"></textarea>
+            </div>
+
+            <button class="btn btn--lg btn--block" type="submit" style="margin-top:.4rem">Start my subscription →</button>
+            <p class="muted center" style="font-size:.78rem;margin-top:.7rem">No payment is taken now — this is a prototype. We'll email you to confirm your plan and set up secure payment. Cancel anytime, no commitment.</p>
+          </form>
+        </div>
+
+        <!-- SUMMARY / REASSURANCE -->
+        <aside class="stack" style="position:sticky;top:calc(var(--header-h) + 16px)">
+          <div class="panel" style="background:linear-gradient(135deg,#D7EFF4,var(--cream-deep))">
+            <span class="eyebrow">Your plan</span>
+            <p id="sum-line" style="font-family:var(--font-display);font-weight:600;font-size:1.15rem;margin:.3rem 0 .9rem">6 bags · Monthly · Surprise box</p>
+            <div style="display:flex;align-items:baseline;gap:.5rem">
+              <span class="stat" id="sum-price" style="font-size:clamp(2rem,6vw,2.8rem)">R428</span>
+              <span class="muted" style="font-weight:600">/ delivery</span>
+            </div>
+            <p style="margin:.5rem 0 0"><span style="text-decoration:line-through;color:var(--muted)" id="sum-was">R450</span>
+              <span style="color:var(--leaf);font-weight:800" id="sum-save">— you save R22 (5%)</span></p>
+            <hr style="border:none;border-top:1px solid var(--line);margin:1.1rem 0">
+            <ul style="list-style:none;padding:0;display:grid;gap:.6rem;font-size:.9rem">
+              <li>✅ <strong>5% off</strong> every single delivery</li>
+              <li>🚚 <strong>Free delivery</strong> on orders R1000+ (else flat R80)</li>
+              <li>⏸️ <strong>Skip, pause or cancel</strong> anytime — no commitment</li>
+              <li>🔄 <strong>Swap your flavours</strong> before each order</li>
+            </ul>
+          </div>
+          <div class="panel center" aria-hidden="true" style="background:linear-gradient(135deg,#FFE6C6,var(--cream-deep))">
+            <svg class="hero-illo" viewBox="0 0 240 240" role="img" aria-label="A delivery box on a monthly repeat cycle" style="max-width:200px">
+              <defs>
+                <marker id="sub-ah2" markerUnits="userSpaceOnUse" markerWidth="26" markerHeight="26" refX="6" refY="13" orient="auto">
+                  <path d="M0 2 L20 13 L0 24 L7 13 Z" fill="#1E9DB2"/>
+                </marker>
+              </defs>
+              <path d="M62 107 A62 62 0 0 1 178 107" fill="none" stroke="#1E9DB2" stroke-width="11" stroke-linecap="round" marker-end="url(#sub-ah2)"/>
+              <path d="M178 149 A62 62 0 0 1 62 149" fill="none" stroke="#1E9DB2" stroke-width="11" stroke-linecap="round" marker-end="url(#sub-ah2)"/>
+              <rect x="84" y="98" width="72" height="62" rx="10" fill="#FFB23E"/>
+              <rect x="84" y="98" width="72" height="16" rx="8" fill="#FFC766"/>
+              <rect x="146" y="114" width="10" height="46" fill="#E89A2E" opacity=".5"/>
+              <rect x="114" y="98" width="12" height="62" fill="#fff" opacity=".45"/>
+              <path d="M120 150 C113 144 106 140 106 134.5 C106 131.2 108.6 129 111.5 129 C114.5 129 117.5 131 120 134.5 C122.5 131 125.5 129 128.5 129 C131.4 129 134 131.2 134 134.5 C134 140 127 144 120 150 Z" fill="#fff" opacity=".9"/>
+            </svg>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <div id="footer-slot"></div>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/confetti.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/fx.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/subscribe.js"></script>
+</body>
+</html>
