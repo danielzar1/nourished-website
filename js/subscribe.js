@@ -7,23 +7,39 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('sub-form');
   if (!form) return;
 
-  const disc = (window.STORE && STORE.subscriptionDiscount) || 0.05;
+  const disc = (window.STORE && STORE.subscriptionDiscount) || 0.10;
   const perBag = (window.STORE && STORE.pricePerBag) || 75;
   const fmt = window.money || (v => 'R' + Math.round(v));
 
-  const state = { plan: 'surprise', size: 6, freq: 'Monthly' };
+  const state = { plan: 'surprise', size: 6, freq: 'Monthly', packs: {} };
+
+  // Full-pack subscription options = the whole-flavour 12-bag boxes (gummies & chews).
+  const packProducts = (window.PRODUCTS || []).filter(p => p.type === 'gummy' || p.type === 'chew');
 
   /* ---- Live summary ---- */
-  const planLabel = () => state.plan === 'pick' ? 'Pick-your-own' : 'Surprise box';
+  const planLabel = () => state.plan === 'pick' ? 'Pick-your-own'
+    : state.plan === 'packs' ? 'Full packs' : 'Surprise box';
+  const packCount = () => Object.values(state.packs).reduce((a, b) => a + b, 0);
+  function baseTotal() {
+    if (state.plan === 'packs') {
+      return Object.entries(state.packs).reduce((sum, [sku, n]) => {
+        const p = getProduct(sku); return sum + (p ? p.price * n : 0);
+      }, 0);
+    }
+    return state.size * perBag;
+  }
   function updateSummary() {
-    const base = state.size * perBag;
+    const base = baseTotal();
     const payable = Math.round(base * (1 - disc));
     const save = base - payable;
     const set = (id, txt) => { const el = document.getElementById(id); if (el) el.textContent = txt; };
-    set('sum-line', `${state.size} bags · ${state.freq} · ${planLabel()}`);
+    const line = state.plan === 'packs'
+      ? `${packCount() || 'No'} pack${packCount() === 1 ? '' : 's'} · ${state.freq} · Your flavours`
+      : `${state.size} bags · ${state.freq} · ${planLabel()}`;
+    set('sum-line', line);
     set('sum-price', fmt(payable));
     set('sum-was', fmt(base));
-    set('sum-save', `— you save ${fmt(save)} (${Math.round(disc * 100)}%)`);
+    set('sum-save', base > 0 ? `— you save ${fmt(save)} (${Math.round(disc * 100)}%)` : '');
   }
 
   /* ---- Label the size pills with their per-delivery price ---- */
@@ -47,6 +63,15 @@ document.addEventListener('DOMContentLoaded', () => {
   wirePills('size-pills', 'size', Number);
   wirePills('freq-pills', 'freq');
 
+  /* ---- Plan-dependent UI (bags per delivery vs full packs) ---- */
+  const bagsBlock = document.getElementById('bags-block');
+  const packsBlock = document.getElementById('packs-block');
+  function syncPlanUI() {
+    const isPacks = state.plan === 'packs';
+    if (bagsBlock) bagsBlock.hidden = isPacks;
+    if (packsBlock) packsBlock.hidden = !isPacks;
+  }
+
   /* ---- Plan radio cards ---- */
   form.querySelectorAll('.toggle-card').forEach(card => {
     const radio = card.querySelector('input[type="radio"]');
@@ -55,9 +80,36 @@ document.addEventListener('DOMContentLoaded', () => {
       card.setAttribute('data-active', 'true');
       radio.checked = true;
       state.plan = radio.value;
+      syncPlanUI();
       updateSummary();
     });
   });
+
+  /* ---- Full-pack picker (subscribe to whole 12-bag packs, multiple flavours) ---- */
+  const packPicker = document.getElementById('pack-picker');
+  if (packPicker) {
+    packPicker.innerHTML = packProducts.map(p => `
+      <div class="panel bab-flavour" data-sku="${p.sku}" style="padding:.7rem;text-align:center">
+        <img src="${productImg(p,'front')}" alt="${p.name}" loading="lazy" style="width:100%;border-radius:var(--r-sm);aspect-ratio:1;object-fit:cover">
+        <div style="font-family:var(--font-display);font-weight:600;font-size:.8rem;margin:.4rem 0 .3rem;line-height:1.15">${p.name}</div>
+        <div class="qty" style="margin:0 auto .35rem;width:fit-content">
+          <button type="button" data-pdec="${p.sku}" aria-label="One less pack of ${p.name}">−</button>
+          <span data-pcount="${p.sku}">0</span>
+          <button type="button" data-pinc="${p.sku}" aria-label="One more pack of ${p.name}">+</button>
+        </div>
+        <div class="muted" style="font-size:.74rem">${fmt(p.price)} / pack</div>
+      </div>`).join('');
+    const setCount = sku => { const el = packPicker.querySelector(`[data-pcount="${sku}"]`); if (el) el.textContent = state.packs[sku] || 0; };
+    packPicker.addEventListener('click', e => {
+      const inc = e.target.closest('[data-pinc]');
+      const dec = e.target.closest('[data-pdec]');
+      if (inc) { const s = inc.dataset.pinc; state.packs[s] = (state.packs[s] || 0) + 1; setCount(s); }
+      else if (dec) { const s = dec.dataset.pdec; if (state.packs[s]) { state.packs[s]--; if (!state.packs[s]) delete state.packs[s]; setCount(s); } }
+      else return;
+      document.getElementById('packs-err')?.setAttribute('style', 'display:none');
+      updateSummary();
+    });
+  }
 
   /* ---- Prefill from query (?size=6&plan=surprise&freq=Monthly) ---- */
   const q = new URLSearchParams(location.search);
@@ -68,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     state.size = Number(qSize);
   }
   const qPlan = q.get('plan');
-  if (qPlan === 'pick' || qPlan === 'surprise') {
+  if (qPlan === 'pick' || qPlan === 'surprise' || qPlan === 'packs') {
     const radio = form.querySelector(`input[name="plan"][value="${qPlan}"]`);
     if (radio) {
       radio.checked = true;
@@ -77,6 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
       state.plan = qPlan;
     }
   }
+  syncPlanUI();
   const qFreq = q.get('freq');
   if (qFreq) {
     const fb = [...document.querySelectorAll('#freq-pills .size-pill')].find(b => b.dataset.freq === qFreq);
@@ -109,14 +162,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const phoneOk = (val('phone').replace(/\D/g, '').length >= 9);
     setError(phone, !phoneOk); if (!phoneOk) ok = false;
 
-    if (!ok) { form.querySelector('.is-invalid input, .is-invalid select')?.focus(); return; }
+    const packsErr = document.getElementById('packs-err');
+    if (state.plan === 'packs' && packCount() === 0) { ok = false; if (packsErr) packsErr.style.display = ''; }
+    else if (packsErr) packsErr.style.display = 'none';
 
-    const base = state.size * perBag;
+    if (!ok) {
+      if (state.plan === 'packs' && packCount() === 0) document.getElementById('packs-block')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      else form.querySelector('.is-invalid input, .is-invalid select')?.focus();
+      return;
+    }
+
+    const base = baseTotal();
     const payable = Math.round(base * (1 - disc));
     const name = val('name').split(' ')[0] || 'there';
+    const planDesc = state.plan === 'packs'
+      ? `${packCount()}-pack ${state.freq.toLowerCase()} subscription — ${Object.entries(state.packs).map(([s, n]) => `${n}× ${getProduct(s).name}`).join(', ')}`
+      : `${state.size}-bag ${state.freq.toLowerCase()} ${planLabel().toLowerCase()} subscription`;
     const success = document.getElementById('sub-success');
     if (success) {
-      success.innerHTML = `🎉 You're all set, ${name}! Your <strong>${state.size}-bag ${state.freq.toLowerCase()} ${planLabel().toLowerCase()}</strong> subscription is reserved at <strong>${fmt(payable)}/delivery</strong>. We've sent a confirmation to <strong>${val('email')}</strong> to finalise your flavours and set up secure payment. Welcome to the Nourished fam! 💛`;
+      success.innerHTML = `🎉 You're all set, ${name}! Your <strong>${planDesc}</strong> is reserved at <strong>${fmt(payable)}/delivery</strong>. We've sent a confirmation to <strong>${val('email')}</strong> to finalise your plan and set up secure payment. Welcome to the Nourished fam! 💛`;
       success.classList.add('is-visible');
     }
     form.style.display = 'none';

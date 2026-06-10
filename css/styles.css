@@ -369,6 +369,26 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   50% { transform: translateY(-10px) rotate(-1.4deg); }
 }
 
+/* ---------- 13c. Legal / content pages + FAQ accordion ---------- */
+.legal { max-width: 760px; margin-inline: auto; }
+.legal > .updated { color: var(--muted); font-size: .85rem; margin-bottom: 1.6rem; }
+.legal h2 { font-family: var(--font-display); font-weight: 600; font-size: 1.35rem; margin: 2rem 0 .5rem; color: var(--ink); }
+.legal h2:first-of-type { margin-top: 0; }
+.legal p, .legal li { color: var(--ink-soft); line-height: 1.7; }
+.legal p { margin-bottom: .9rem; }
+.legal ul { margin: .3rem 0 1rem 1.2rem; display: flex; flex-direction: column; gap: .4rem; }
+.legal a { color: var(--accent); font-weight: 700; }
+.legal .note { background: var(--accent-soft); border-radius: var(--r-md); padding: 1rem 1.2rem; font-size: .9rem; }
+
+.faq-list { max-width: 760px; margin-inline: auto; }
+.faq-item { border: 1px solid var(--line); border-radius: var(--r-md); background: var(--white); margin-bottom: .8rem; box-shadow: var(--shadow-sm); }
+.faq-item summary { cursor: pointer; padding: 1.1rem 1.3rem; font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; color: var(--ink); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; font-size: 1.5rem; line-height: 1; color: var(--accent); flex: none; }
+.faq-item[open] summary::after { content: '\2212'; }
+.faq-item .faq-a { padding: 0 1.3rem 1.2rem; color: var(--ink-soft); line-height: 1.7; }
+.faq-item .faq-a a { color: var(--accent); font-weight: 700; }
+
 /* ---------- 14. Reduced motion: calm everything ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

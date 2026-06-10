@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Start Your Subscription — Nourished</title>
-  <meta name="description" content="Set up your monthly Nourished sweets subscription. Choose your plan, enter your details, and save 5% on every delivery. Skip, pause or cancel anytime.">
+  <meta name="description" content="Set up your monthly Nourished sweets subscription. Choose your plan, enter your details, and save 10% on every delivery. Skip, pause or cancel anytime.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,7 @@
       <div class="container center stack" style="max-width:760px;margin-inline:auto">
         <span class="eyebrow">↻ Start your subscription</span>
         <h1 class="section-title">Set up your monthly treats</h1>
-        <p class="lead" style="margin-inline:auto">Build your plan, pop in your details, and you're done. We'll take <strong>5% off every delivery</strong> — and you can skip, pause or cancel anytime. <a href="subscribe.html" style="color:var(--accent);font-weight:700">How it works →</a></p>
+        <p class="lead" style="margin-inline:auto">Build your plan, pop in your details, and you're done. We'll take <strong>10% off every delivery</strong> — and you can skip, pause or cancel anytime. <a href="subscribe.html" style="color:var(--accent);font-weight:700">How it works →</a></p>
       </div>
     </section>
 
@@ -44,20 +44,32 @@
                 <input type="radio" name="plan" value="pick">
                 <span><span class="toggle-card__title">Let me choose my flavours 🍬</span><br><span class="muted" style="font-size:.86rem">Hand-pick exactly which sweets go in every box. We'll help you set it after sign-up.</span></span>
               </label>
+              <label class="toggle-card" data-active="false">
+                <input type="radio" name="plan" value="packs">
+                <span><span class="toggle-card__title">Full packs of my favourites 📦</span><br><span class="muted" style="font-size:.86rem">Subscribe to whole 12-bag packs of the flavours you love — add as many as you like (e.g. Strawberry &amp; Cream <em>and</em> Raspberry Frogs).</span></span>
+              </label>
             </div>
 
-            <p style="font-family:var(--font-display);font-weight:500;font-size:.92rem;margin-bottom:.5rem">How many bags per delivery?</p>
-            <div class="size-pills" id="size-pills" role="group" aria-label="Bags per delivery" style="margin-bottom:1.3rem">
-              <button type="button" class="size-pill" data-size="3">3 bags<small></small></button>
-              <button type="button" class="size-pill" data-size="6" aria-pressed="true">6 bags<small></small></button>
-              <button type="button" class="size-pill" data-size="12">12 bags<small></small></button>
+            <div id="bags-block">
+              <p style="font-family:var(--font-display);font-weight:500;font-size:.92rem;margin-bottom:.5rem">How many bags per delivery?</p>
+              <div class="size-pills" id="size-pills" role="group" aria-label="Bags per delivery" style="margin-bottom:1.3rem">
+                <button type="button" class="size-pill" data-size="3">3 bags<small></small></button>
+                <button type="button" class="size-pill" data-size="6" aria-pressed="true">6 bags<small></small></button>
+                <button type="button" class="size-pill" data-size="12">12 bags<small></small></button>
+              </div>
+            </div>
+
+            <div id="packs-block" hidden style="margin-bottom:1.3rem">
+              <p style="font-family:var(--font-display);font-weight:500;font-size:.92rem;margin-bottom:.3rem">Pick your packs</p>
+              <p class="muted" style="font-size:.84rem;margin-bottom:.8rem">Each pack is a full box of 12 bags. Add as many flavours as you like — your subscription is the total, minus 10%.</p>
+              <div class="bab-flavours" id="pack-picker"></div>
+              <p id="packs-err" style="display:none;color:#c0392b;font-weight:700;font-size:.85rem;margin-top:.7rem">Please add at least one pack to continue.</p>
             </div>
 
             <p style="font-family:var(--font-display);font-weight:500;font-size:.92rem;margin-bottom:.5rem">How often?</p>
             <div class="size-pills" id="freq-pills" role="group" aria-label="Delivery frequency" style="margin-bottom:1.6rem">
               <button type="button" class="size-pill" data-freq="Every 2 weeks">Every 2 weeks<small>fortnightly</small></button>
               <button type="button" class="size-pill" data-freq="Monthly" aria-pressed="true">Monthly<small>most popular</small></button>
-              <button type="button" class="size-pill" data-freq="Every 2 months">Every 2 months<small>occasional</small></button>
             </div>
 
             <!-- 2. Your details -->
@@ -134,14 +146,14 @@
             <span class="eyebrow">Your plan</span>
             <p id="sum-line" style="font-family:var(--font-display);font-weight:600;font-size:1.15rem;margin:.3rem 0 .9rem">6 bags · Monthly · Surprise box</p>
             <div style="display:flex;align-items:baseline;gap:.5rem">
-              <span class="stat" id="sum-price" style="font-size:clamp(2rem,6vw,2.8rem)">R428</span>
+              <span class="stat" id="sum-price" style="font-size:clamp(2rem,6vw,2.8rem)">R405</span>
               <span class="muted" style="font-weight:600">/ delivery</span>
             </div>
             <p style="margin:.5rem 0 0"><span style="text-decoration:line-through;color:var(--muted)" id="sum-was">R450</span>
-              <span style="color:var(--leaf);font-weight:800" id="sum-save">— you save R22 (5%)</span></p>
+              <span style="color:var(--leaf);font-weight:800" id="sum-save">— you save R45 (10%)</span></p>
             <hr style="border:none;border-top:1px solid var(--line);margin:1.1rem 0">
             <ul style="list-style:none;padding:0;display:grid;gap:.6rem;font-size:.9rem">
-              <li>✅ <strong>5% off</strong> every single delivery</li>
+              <li>✅ <strong>10% off</strong> every single delivery</li>
               <li>🚚 <strong>Free delivery</strong> on orders R1000+ (else flat R80)</li>
               <li>⏸️ <strong>Skip, pause or cancel</strong> anytime — no commitment</li>
               <li>🔄 <strong>Swap your flavours</strong> before each order</li>

@@ -22,7 +22,7 @@
 
   /* ---- Header ---- */
   const header = `
-    <div class="announce">Free delivery on orders over <strong>R1000</strong> · No added sugar, all the fun 🍬</div>
+    <div class="announce">Premium better-for-you sweets, all the fun 🍬</div>
     <header class="site-header">
       <div class="container nav">
         <a class="nav__logo" href="index.html" aria-label="Nourished home">
@@ -30,9 +30,6 @@
         </a>
         <nav class="nav__links" aria-label="Primary">${navLinks}</nav>
         <div class="nav__actions">
-          <button class="icon-btn" id="sound-toggle" aria-pressed="false" aria-label="Toggle sound effects" title="Sound effects">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path class="snd-on" d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" style="display:none"/><line class="snd-off" x1="22" y1="9" x2="16" y2="15"/><line class="snd-off" x1="16" y1="9" x2="22" y2="15"/></svg>
-          </button>
           <button class="icon-btn" id="cart-open" data-cart-target aria-label="Open cart">
             ${cartIcon}<span class="cart-count" data-cart-count>0</span>
           </button>
@@ -101,19 +98,23 @@
             <li><a href="about.html">About the brand</a></li>
             <li><a href="stockists.html">Where to buy</a></li>
             <li><a href="contact.html">Contact us</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="delivery-returns.html">Delivery &amp; returns</a></li>
           </ul></div>
           <div><h4>Say hi</h4><ul>
             <li><a href="mailto:${STORE.email}">${STORE.email}</a></li>
             <li><a href="contact.html">Wholesale &amp; stockists</a></li>
-            <li style="display:flex;gap:.8rem;margin-top:.4rem">
-              <a href="${STORE.social.instagram}" aria-label="Instagram">Instagram</a>
-              <a href="${STORE.social.tiktok}" aria-label="TikTok">TikTok</a>
+            <li class="footer-social" style="display:flex;gap:1rem;margin-top:.6rem">
+              <a href="${STORE.social.instagram}" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+              <a href="${STORE.social.tiktok}" aria-label="TikTok"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.3 2.1 1.6 3.6 3.5 3.9v2.4c-1.3 0-2.5-.4-3.5-1.1v6.1c0 3.1-2.4 5.6-5.5 5.6S5.9 17.5 5.9 14.4c0-2.9 2.2-5.3 5-5.5v2.5c-1.3.2-2.3 1.4-2.3 2.8 0 1.6 1.2 2.8 2.6 2.8s2.6-1.3 2.6-3V3h2.7z"/></svg></a>
+              <a href="${STORE.social.facebook}" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3l.4-3H14V4.2c0-.9.3-1.5 1.6-1.5H18V.1C17.6 0 16.5 0 15.3 0 12.7 0 11 1.6 11 4v2H8v3h3v9h3V9z"/></svg></a>
             </li>
           </ul></div>
         </div>
         <div class="footer-bottom">
           <span>© ${year} Nourished. All rights reserved.</span>
           <span>No added sugar · Natural colours &amp; flavours · Gluten free</span>
+          <span style="display:flex;gap:1rem;flex-wrap:wrap"><a href="privacy.html">Privacy Policy</a><a href="delivery-returns.html">Delivery, Returns &amp; Refunds</a></span>
         </div>
       </div>
     </footer>`;
@@ -142,16 +143,6 @@
   function closeNav() { mnav?.classList.remove('is-open'); mnav?.setAttribute('aria-hidden', 'true'); $('#nav-open')?.setAttribute('aria-expanded', 'false'); }
   $('#nav-open')?.addEventListener('click', openNav);
   $('#nav-close')?.addEventListener('click', closeNav);
-
-  // sound toggle
-  $('#sound-toggle')?.addEventListener('click', e => {
-    const on = FX.toggleSound();
-    const btn = e.currentTarget;
-    btn.setAttribute('aria-pressed', String(on));
-    btn.querySelectorAll('.snd-off').forEach(n => n.style.display = on ? 'none' : '');
-    btn.querySelectorAll('.snd-on').forEach(n => n.style.display = on ? '' : 'none');
-    if (on) FX.pop(660);
-  });
 
   // newsletter (demo)
   $('#newsletter-form')?.addEventListener('submit', e => {

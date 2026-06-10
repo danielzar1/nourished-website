@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('bab');
   if (!root) return;
 
+  const heroImg = document.getElementById('bab-hero');
+  if (heroImg && window.BOX_HERO_IMG) heroImg.src = BOX_HERO_IMG;
+
   const flavours = mixableProducts();
   let size = STORE.boxSizes[1]; // default 6
   let picks = {};               // { sku: count }
@@ -43,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ${p ? `<img src="${productImg(p,'front')}" alt="${p.name}">` : '<span>+</span>'}</div>`;
     }
     slotsEl.innerHTML = html;
-    slotsEl.style.gridTemplateColumns = `repeat(${size === 3 ? 3 : size === 6 ? 3 : 4}, 1fr)`;
+    slotsEl.style.gridTemplateColumns = `repeat(${size === 6 ? 3 : size === 12 ? 4 : 6}, 1fr)`;
   }
 
   function refresh() {
@@ -99,10 +102,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* surprise me */
+  /* surprise me — fill one of each flavour first, then duplicate at random */
   root.querySelector('#bab-surprise')?.addEventListener('click', () => {
     picks = {}; wasFull = false;
-    for (let i = 0; i < size; i++) {
+    const shuffled = flavours.slice().sort(() => Math.random() - 0.5);
+    // at least one of each (up to the box size) before any duplicates
+    shuffled.slice(0, Math.min(size, shuffled.length)).forEach(p => { picks[p.sku] = 1; });
+    // fill any remaining slots with random duplicates
+    while (total() < size) {
       const p = flavours[Math.floor(Math.random() * flavours.length)];
       picks[p.sku] = (picks[p.sku] || 0) + 1;
     }

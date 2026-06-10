@@ -80,7 +80,7 @@ const Cart = (() => {
         <div>
           <div class="cart-item__name">${it.name}</div>
           <div class="cart-item__meta">${lineMeta(it)}</div>
-          ${it.subscribe ? `<div class="cart-item__sub">↻ Subscribe &amp; Save 5%</div>` : ''}
+          ${it.subscribe ? `<div class="cart-item__sub">↻ Subscribe &amp; Save 10%</div>` : ''}
           <div class="qty" data-i="${i}">
             <button data-act="dec" aria-label="Decrease quantity">−</button>
             <span>${it.qty}</span>

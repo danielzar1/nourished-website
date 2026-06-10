@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Build a Box — Nourished | Mix Your Own Sweets</title>
-  <meta name="description" content="Build your own box of Nourished sweets — mix any 3, 6 or 12 bags of your favourite no-added-sugar flavours and we'll deliver them to your door.">
+  <meta name="description" content="Build your own box of Nourished sweets — mix any 6, 12 or 18 bags of your favourite no-added-sugar flavours and we'll deliver them to your door.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,8 @@
       <div class="container center stack">
         <span class="eyebrow">🎁 Pick &amp; Mix</span>
         <h1 class="section-title">Build your own box</h1>
-        <p class="lead" style="margin-inline:auto">Choose your size, mix your favourite flavours, and watch your box fill up. The more you mix, the more fun you have.</p>
+        <p class="lead" style="margin-inline:auto">Pick your box size, mix your favourite flavours, and watch the fun fill up. More flavours, more FUNDAY.</p>
+        <img id="bab-hero" src="" alt="A FUNDAY box overflowing with colourful sweets" style="width:100%;max-width:460px;margin:1.6rem auto 0;border-radius:var(--r-lg);box-shadow:var(--shadow-md)">
       </div>
     </section>
 
@@ -36,11 +37,11 @@
                   <circle class="fill" id="bab-ring-fill" cx="50" cy="50" r="45"/>
                 </svg>
                 <div>
-                  <div class="bab-counter" id="bab-counter">0 / 6</div>
+                  <div class="bab-counter" id="bab-counter">0 / 12</div>
                   <div class="muted" style="font-size:.85rem">bags in your box</div>
                 </div>
                 <div style="margin-left:auto;text-align:right">
-                  <div class="card__price" id="bab-price" style="font-size:1.6rem">R450</div>
+                  <div class="card__price" id="bab-price" style="font-size:1.6rem">R900</div>
                   <div class="muted" style="font-size:.78rem">R75 / bag</div>
                 </div>
               </div>
@@ -49,11 +50,11 @@
 
             <label class="toggle-card" data-active="false" style="margin-top:1rem">
               <input type="checkbox" id="bab-sub">
-              <span><span class="toggle-card__title">↻ Subscribe &amp; Save <span class="save-flag">5%</span></span><br>
-              <span class="muted">Get this box monthly and save 5%. Skip or cancel anytime.</span></span>
+              <span><span class="toggle-card__title">↻ Subscribe &amp; Save <span class="save-flag">10%</span></span><br>
+              <span class="muted">Get this box monthly and save 10%. Skip or cancel anytime.</span></span>
             </label>
 
-            <button class="btn btn--lg btn--block" id="bab-add" style="margin-top:1rem" disabled>Pick 6 more</button>
+            <button class="btn btn--lg btn--block" id="bab-add" style="margin-top:1rem" disabled>Pick 12 more</button>
           </div>
 
           <!-- CONTROLS: size + flavours -->
@@ -61,9 +62,9 @@
             <div>
               <h2 style="font-size:1.3rem;margin-bottom:.8rem">1. Choose your box size</h2>
               <div class="size-pills">
-                <button class="size-pill" data-size="3">3 bags<small>R225</small></button>
-                <button class="size-pill" data-size="6">6 bags<small>R450 · popular</small></button>
-                <button class="size-pill" data-size="12">12 bags<small>R900</small></button>
+                <button class="size-pill" data-size="6">6 bags<small>R450</small></button>
+                <button class="size-pill" data-size="12">12 bags<small>R900 · popular</small></button>
+                <button class="size-pill" data-size="18">18 bags<small>R1350</small></button>
               </div>
             </div>
             <div style="margin-top:1.5rem">

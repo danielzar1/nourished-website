@@ -52,8 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
           </label>
           <label class="toggle-card" data-mode="sub">
             <input type="radio" name="purchase" value="sub">
-            <span><span class="toggle-card__title">↻ Subscribe &amp; Save <span class="save-flag">5%</span></span><br>
-            <span class="muted">${money(Math.round(p.price*0.95))} / month — skip or cancel anytime</span></span>
+            <span><span class="toggle-card__title">↻ Subscribe &amp; Save <span class="save-flag">10%</span></span><br>
+            <span class="muted">${money(Math.round(p.price*0.9))} / month — skip or cancel anytime</span></span>
           </label>
         </div>
 
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // purchase mode
   function refreshTotal() {
-    const unit = subscribe ? Math.round(p.price * 0.95) : p.price;
+    const unit = subscribe ? Math.round(p.price * 0.9) : p.price;
     document.getElementById('pdp-add-total').textContent = money(unit * qty);
   }
   mount.querySelectorAll('input[name="purchase"]').forEach(r => r.addEventListener('change', e => {

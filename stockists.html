@@ -18,15 +18,15 @@
     <section class="section--tight">
       <div class="container center stack">
         <span class="eyebrow">📍 Where to buy</span>
-        <h1 class="section-title">Find Nourished near you</h1>
-        <p class="lead" style="margin-inline:auto">Prefer to grab your sweets in person? Look for Nourished at these retailers across South Africa.</p>
+        <h1 class="section-title">Find FUNDAY Natural Sweets near you</h1>
+        <p class="lead" style="margin-inline:auto">Prefer to grab your sweets in person? Look for FUNDAY Natural Sweets at these retailers across South Africa.</p>
       </div>
     </section>
 
     <section style="padding-bottom:clamp(40px,6vw,72px)">
       <div class="container">
         <div class="grid" id="stockist-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))"></div>
-        <p class="center muted" style="margin-top:1.5rem;font-size:.85rem">Stockist list is illustrative for now — the live list will be confirmed at launch.</p>
+        <p class="center muted" style="margin-top:1.5rem;font-size:.85rem">More stockists are joining all the time — store details are confirmed at launch.</p>
       </div>
     </section>
 
@@ -77,14 +77,13 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const stores = [
-        { n: 'Wellness Co.', c: 'Nationwide · health stores' },
-        { n: 'Pharma Plus', c: 'Selected pharmacies' },
-        { n: 'Natural Foods Market', c: 'Cape Town · Gauteng' },
-        { n: 'GreenGrocer', c: 'Organic grocers' },
-        { n: 'FuelUp Stores', c: 'Convenience & forecourt' },
-        { n: 'The Deli Room', c: 'Delis & cafés' },
-        { n: 'Kids Emporium', c: 'Toy & lifestyle stores' },
-        { n: 'Online Marketplace', c: 'Ships countrywide' }
+        { n: 'Pantry Jan Smuts', c: 'Deli & café · Johannesburg' },
+        { n: 'Pantry Hazelwood', c: 'Deli & café · Pretoria' },
+        { n: 'Pantry Bassonia', c: 'Deli & café · Johannesburg' },
+        { n: 'Mastro Craighall', c: 'Café & deli · Johannesburg' },
+        { n: 'Melrose Arch Flower Market', c: 'Melrose Arch · Johannesburg' },
+        { n: 'GetBird', c: 'Online · delivery' },
+        { n: 'TotalEnergies Illovo', c: 'Forecourt shop · Johannesburg' }
       ];
       document.getElementById('stockist-grid').innerHTML = stores.map((s, i) => `
         <div class="panel reveal" data-delay="${i*60}" style="text-align:center">

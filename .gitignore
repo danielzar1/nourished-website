@@ -8,9 +8,11 @@ CHANGELOG.md
 # --- Source materials: not needed for the live site (large / sensitive) ---
 FUNDAY Retail Pricing - Website.xlsx
 *.xlsx
+*.docx
 wetransfer_*.zip
 *.zip
 Pictures/
+New Files for website/
 
 # --- Local tooling & OS cruft ---
 .claude/
