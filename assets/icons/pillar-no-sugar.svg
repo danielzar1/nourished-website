@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" aria-hidden="true">
+  <defs><style>.bg{fill:rgba(138,111,209,0.12)}.fg{stroke:#8A6FD1;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.hi{fill:#fff;opacity:0.55}</style></defs>
+  <circle class="bg" cx="12" cy="12" r="12"/>
+  <g fill="none" stroke="none" stroke-width="0">
+    <path class="fg" d="M12 2v20M5 5l14 14"/>
+    <circle cx="12" cy="12" r="9" stroke="#8A6FD1" stroke-opacity="0.25" stroke-width="1.2" fill="none"/>
+  </g>
+  <ellipse class="hi" cx="9" cy="8" rx="2.5" ry="1.8"/>
+</svg>
